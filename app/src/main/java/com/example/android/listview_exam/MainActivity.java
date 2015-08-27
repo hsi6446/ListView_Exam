@@ -3,15 +3,17 @@ package com.example.android.listview_exam;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    private List<String> mData;
-    private ArrayAdapter<String> mAdapter;
+    private List<Map<String, String>> mData;
+    private SimpleAdapter mAdapter;
     private ListView mListView;
 
     @Override
@@ -34,17 +36,25 @@ public class MainActivity extends AppCompatActivity {
     private void initData() {
         mData = new ArrayList<>();
         for (int i = 1; i <= 100; i++) {
-            mData.add("Item" + i);
+            Map<String, String> data = new HashMap<>();
+            data.put("item", "item" + i);
+            data.put("subitem", "Sub Item" + i);
+            mData.add(data);
         }
     }
 
     private void initAdapter() {
-        mAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1,
-                mData);
+        mAdapter = new SimpleAdapter(getApplicationContext(), mData,
+                android.R.layout.simple_list_item_2, new String[] {
+                        "item", "subitem"
+                }, new int[] {
+                        android.R.id.text1, android.R.id.text2
+                });
+
     }
 
     private void initListView() {
-        ListView mListView = (ListView)findViewById(R.id.list_view);
+        ListView mListView = (ListView) findViewById(R.id.list_view);
         mListView.setAdapter(mAdapter);
     }
 
