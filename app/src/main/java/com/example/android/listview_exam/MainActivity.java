@@ -13,6 +13,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ListView 연습
+ */
+
 public class MainActivity extends AppCompatActivity {
     private List<People> mData;
     private CustomAdapter mAdapter;
