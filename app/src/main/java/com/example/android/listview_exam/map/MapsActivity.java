@@ -36,7 +36,7 @@ public class MapsActivity extends FragmentActivity {
         LatLng latLng = new LatLng(37.554531, 126.97066300000006);
         CameraUpdate seoul = CameraUpdateFactory.newLatLngZoom(latLng, 15);
         mMap.moveCamera(seoul);
-        
+
         mMap.addMarker(new MarkerOptions().position(latLng).title("서울역"));
     }
 
