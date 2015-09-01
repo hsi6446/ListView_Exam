@@ -1,7 +1,10 @@
 package com.example.android.listview_exam;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,7 +37,22 @@ public class DetailActivity extends AppCompatActivity {
             mNameTextView.setText(nameRes);
             mPhoneNumberTextView.setText(phoneNumberRes);
         }
+
+
+        mPhoneNumberTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                 Uri uri = Uri.parse("tel: " + mPhoneNumberTextView.getText().toString());
+                 Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+                startActivity(intent);
+            }
+        });
     }
+
+
+
+
 
 
 

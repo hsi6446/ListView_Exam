@@ -34,6 +34,7 @@
         android:layout_margin="10dp"
         android:textColor="#000000"
         android:text="010-0000-0000"
+        android:onClick="phoneCall"
         android:textSize="30sp" />
 
 </LinearLayout>
